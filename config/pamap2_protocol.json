@@ -1,0 +1,181 @@
+{
+  "phase": "Phase 4A",
+  "dataset": "PAMAP2 Physical Activity Monitoring",
+  "official_source": "https://archive.ics.uci.edu/static/public/231/pamap2+physical+activity+monitoring.zip",
+  "sensor": "hand 16 g accelerometer XYZ plus magnitude",
+  "sampling_hz": 50,
+  "window": {
+    "samples": 128,
+    "stride": 64
+  },
+  "known_activities": [
+    "lying",
+    "sitting",
+    "standing",
+    "walking"
+  ],
+  "novel_activities": [
+    "ascending_stairs",
+    "descending_stairs",
+    "vacuum_cleaning",
+    "ironing"
+  ],
+  "outer_folds": [
+    {
+      "fold": 1,
+      "train_subjects": [
+        102,
+        103
+      ],
+      "selection_subjects": [
+        104,
+        106
+      ],
+      "integration_subjects": [
+        107,
+        108
+      ],
+      "test_subjects": [
+        101,
+        105
+      ]
+    },
+    {
+      "fold": 2,
+      "train_subjects": [
+        101,
+        103
+      ],
+      "selection_subjects": [
+        104,
+        105
+      ],
+      "integration_subjects": [
+        107,
+        108
+      ],
+      "test_subjects": [
+        102,
+        106
+      ]
+    },
+    {
+      "fold": 3,
+      "train_subjects": [
+        101,
+        102
+      ],
+      "selection_subjects": [
+        104,
+        105
+      ],
+      "integration_subjects": [
+        106,
+        108
+      ],
+      "test_subjects": [
+        103,
+        107
+      ]
+    },
+    {
+      "fold": 4,
+      "train_subjects": [
+        101,
+        102
+      ],
+      "selection_subjects": [
+        103,
+        105
+      ],
+      "integration_subjects": [
+        106,
+        107
+      ],
+      "test_subjects": [
+        104,
+        108
+      ]
+    }
+  ],
+  "locked_phase3d_policy": {
+    "phase": "Phase 3D",
+    "status": "Selection-only exploratory redesign; no test-subject windows or labels were accessed.",
+    "selected_policy": "ranked_mnn",
+    "selection_summary": {
+      "ranked_mnn": {
+        "fold": 3.0,
+        "local_signatures": 13.2,
+        "agreement_groups": 4.4,
+        "promoted_entries": 1.6,
+        "label_queries": 3.6,
+        "novel_recovery": 0.4,
+        "entry_purity": 0.6197860019,
+        "novel_macro_f1": 0.2460143858,
+        "cluster_ari": 0.2772475587,
+        "cluster_nmi": 0.4340307163,
+        "selection_score": 0.3901386777
+      },
+      "threshold_component": {
+        "fold": 3.0,
+        "local_signatures": 1.0,
+        "agreement_groups": 0.4,
+        "promoted_entries": 0.4,
+        "label_queries": 0.4,
+        "novel_recovery": 0.1,
+        "entry_purity": 0.3864864865,
+        "novel_macro_f1": 0.046249449,
+        "cluster_ari": 0.0521975574,
+        "cluster_nmi": 0.0818857855,
+        "selection_score": 0.1701958357
+      },
+      "threshold_mnn": {
+        "fold": 3.0,
+        "local_signatures": 1.0,
+        "agreement_groups": 0.4,
+        "promoted_entries": 0.4,
+        "label_queries": 0.4,
+        "novel_recovery": 0.1,
+        "entry_purity": 0.3784946237,
+        "novel_macro_f1": 0.0391921982,
+        "cluster_ari": 0.0521975574,
+        "cluster_nmi": 0.0818857855,
+        "selection_score": 0.1663868267
+      }
+    },
+    "policy": {
+      "ranked": true,
+      "matching": "mnn"
+    },
+    "locked_for_third_dataset": true,
+    "config": {
+      "project": "/content/drive/MyDrive/FedVocabHAR",
+      "seed": 42,
+      "known_activities": [
+        "walking",
+        "running",
+        "sitting",
+        "standing"
+      ],
+      "novel_activities": [
+        "climbingup",
+        "climbingdown",
+        "jumping",
+        "lying"
+      ],
+      "probe_per_subject_activity": 220,
+      "max_candidates_per_client": 600,
+      "min_local_cluster_size": 12,
+      "min_agreeing_clients": 2,
+      "label_query_budget": 4,
+      "novelty_false_alarm_quantile": 0.02,
+      "local_distance_quantile": 0.9,
+      "agreement_similarity_quantile": 0.1,
+      "selection_score_recovery_weight": 0.5,
+      "selection_score_purity_weight": 0.3,
+      "selection_score_novel_f1_weight": 0.2,
+      "selection_score_query_penalty": 0.05
+    }
+  },
+  "rule": "The ranked-MNN policy, its calibration quantiles, and label-query budget are frozen. PAMAP2 may not be used to redesign or select the policy."
+}

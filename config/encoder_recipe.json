@@ -1,0 +1,48 @@
+{
+  "config": {
+    "project": "/content/drive/MyDrive/FedVocabHAR",
+    "seed": 42,
+    "known_activities": [
+      "walking",
+      "running",
+      "sitting",
+      "standing"
+    ],
+    "novel_activities": [
+      "climbingup",
+      "climbingdown",
+      "jumping",
+      "lying"
+    ],
+    "embedding_dim": 64,
+    "ssl_per_subject_activity": 300,
+    "probe_per_subject_activity": 220,
+    "integration_per_subject_activity": 220,
+    "batch_size": 192,
+    "ssl_epochs": 20,
+    "ssl_validation_every": 4,
+    "ssl_learning_rate": 0.0008,
+    "ssl_weight_decay": 0.0001,
+    "temperature": 0.12,
+    "reconstruction_weight": 0.3,
+    "domain_weight": 0.08,
+    "variance_weight": 0.08,
+    "mask_fraction": 0.25,
+    "support_per_class": 8,
+    "query_per_class": 12,
+    "episodes_per_epoch": 36,
+    "episodic_epochs": 20,
+    "episodic_validation_every": 2,
+    "episodic_learning_rate": 0.0002,
+    "episodic_weight_decay": 1e-05,
+    "prototype_temperature": 0.1,
+    "anchor_weight": 0.25,
+    "known_accuracy_gate": 0.6,
+    "known_macro_f1_gate": 0.5,
+    "worst_known_f1_gate": 0.4,
+    "novel_macro_f1_gate": 0.65,
+    "worst_novel_f1_gate": 0.4,
+    "combined_macro_f1_gate": 0.45,
+    "cross_subject_sd_gate": 0.12
+  }
+}

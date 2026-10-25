@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Datasets and model artifacts
+data/
+/artifacts/
+/colab/
+/paper/
+/submission/
+/documents/
+/figures/
+/output/
+/tmp/
+CITATION.cff
+*.pdf
+*.docx
+*.tex
+*.bib
+*.png
+*.jpg
+*.svg
+*.npz
+*.pt
+*.pth
+*.ckpt
+
+# LaTeX build products
+paper/build*/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

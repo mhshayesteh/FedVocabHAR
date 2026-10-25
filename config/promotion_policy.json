@@ -1,0 +1,36 @@
+{
+  "selected_policy": "ranked_mnn",
+  "locked_for_third_dataset": true,
+  "config": {
+    "project": "/content/drive/MyDrive/FedVocabHAR",
+    "seed": 42,
+    "known_activities": [
+      "walking",
+      "running",
+      "sitting",
+      "standing"
+    ],
+    "novel_activities": [
+      "climbingup",
+      "climbingdown",
+      "jumping",
+      "lying"
+    ],
+    "probe_per_subject_activity": 220,
+    "max_candidates_per_client": 600,
+    "min_local_cluster_size": 12,
+    "min_agreeing_clients": 2,
+    "label_query_budget": 4,
+    "novelty_false_alarm_quantile": 0.02,
+    "local_distance_quantile": 0.9,
+    "agreement_similarity_quantile": 0.1,
+    "selection_score_recovery_weight": 0.5,
+    "selection_score_purity_weight": 0.3,
+    "selection_score_novel_f1_weight": 0.2,
+    "selection_score_query_penalty": 0.05
+  },
+  "policy": {
+    "ranked": true,
+    "matching": "mnn"
+  }
+}

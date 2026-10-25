@@ -1,0 +1,171 @@
+{
+  "dataset": "RealWorld HAR 2016",
+  "official_source": "https://www.uni-mannheim.de/dws/research/projects/activity-recognition/dataset/dataset-realworld/",
+  "primary_modality": "forearm accelerometer XYZ plus magnitude",
+  "secondary_modality": "forearm accelerometer XYZ plus magnitude and gyroscope XYZ",
+  "known_activities": [
+    "walking",
+    "running",
+    "sitting",
+    "standing"
+  ],
+  "novel_activities": [
+    "climbingup",
+    "climbingdown",
+    "jumping",
+    "lying"
+  ],
+  "outer_folds": [
+    {
+      "fold": 1,
+      "train_subjects": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "selection_subjects": [
+        9,
+        10,
+        12
+      ],
+      "integration_subjects": [
+        13,
+        14,
+        15
+      ],
+      "test_subjects": [
+        1,
+        6,
+        11
+      ]
+    },
+    {
+      "fold": 2,
+      "train_subjects": [
+        4,
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "selection_subjects": [
+        11,
+        13,
+        14
+      ],
+      "integration_subjects": [
+        15,
+        1,
+        3
+      ],
+      "test_subjects": [
+        2,
+        7,
+        12
+      ]
+    },
+    {
+      "fold": 3,
+      "train_subjects": [
+        6,
+        7,
+        9,
+        10,
+        11,
+        12
+      ],
+      "selection_subjects": [
+        14,
+        15,
+        1
+      ],
+      "integration_subjects": [
+        2,
+        4,
+        5
+      ],
+      "test_subjects": [
+        3,
+        8,
+        13
+      ]
+    },
+    {
+      "fold": 4,
+      "train_subjects": [
+        8,
+        10,
+        11,
+        12,
+        13,
+        15
+      ],
+      "selection_subjects": [
+        1,
+        2,
+        3
+      ],
+      "integration_subjects": [
+        5,
+        6,
+        7
+      ],
+      "test_subjects": [
+        4,
+        9,
+        14
+      ]
+    },
+    {
+      "fold": 5,
+      "train_subjects": [
+        11,
+        12,
+        13,
+        14,
+        1,
+        2
+      ],
+      "selection_subjects": [
+        3,
+        4,
+        6
+      ],
+      "integration_subjects": [
+        7,
+        8,
+        9
+      ],
+      "test_subjects": [
+        5,
+        10,
+        15
+      ]
+    }
+  ],
+  "frozen_method": {
+    "initialization": "label-free SSL-Full trained within each outer fold",
+    "adaptation": "cross-subject Episodic Anchor",
+    "anchor_weight": 0.25,
+    "prototype_temperature": 0.1,
+    "support_per_class": 8,
+    "query_per_class": 12,
+    "episodes_per_epoch": 36,
+    "epochs": 20,
+    "selection_rule": "development prototype geometry only"
+  },
+  "gates": {
+    "known_accuracy_gate": 0.6,
+    "known_macro_f1_gate": 0.5,
+    "worst_known_f1_gate": 0.4,
+    "novel_macro_f1_gate": 0.65,
+    "worst_novel_f1_gate": 0.4,
+    "combined_macro_f1_gate": 0.45,
+    "cross_subject_sd_gate": 0.12
+  },
+  "rule": "No fold, vocabulary, hyperparameter, or gate may be changed after external test results are opened."
+}
