@@ -1,0 +1,372 @@
+{
+  "protocol": "M1-MHEALTH-external-transfer-v1",
+  "date": "2026-11-16",
+  "status": "scientific_specification_implementation_pending_no_target_access",
+  "team_access_statement": {
+    "question_scope": "User and coauthors; any project; training/evaluation/inspected results",
+    "verbatim_answer": "no",
+    "interpretation": "User reports no prior MHEALTH use; not an independently verified access log",
+    "prior_metadata_mention_preserved": true
+  },
+  "target": {
+    "name": "MHEALTH",
+    "doi": "10.24432/C5TW22",
+    "official_metadata_url": "https://archive.ics.uci.edu/dataset/319/mhealth+dataset",
+    "archive_sha256": null,
+    "archive_identity_policy": "Record first official fetched bytes before extraction; no preexisting checksum claimed",
+    "acquisition_subjects": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "evaluation_subjects": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "source_fit_subjects": [],
+    "episodes": 1,
+    "label_mapping": {
+      "1": "standing",
+      "2": "sitting",
+      "3": "lying",
+      "4": "walking",
+      "5": "climbing_stairs",
+      "6": "waist_bends_forward",
+      "7": "frontal_elevation_arms",
+      "8": "knees_bending",
+      "9": "cycling",
+      "10": "jogging",
+      "11": "running",
+      "12": "jump_front_back"
+    },
+    "known": [
+      "walking",
+      "running",
+      "sitting",
+      "standing"
+    ],
+    "novel": [
+      "lying",
+      "climbing_stairs",
+      "waist_bends_forward",
+      "frontal_elevation_arms",
+      "knees_bending",
+      "cycling",
+      "jogging",
+      "jump_front_back"
+    ],
+    "null_label": 0,
+    "all_non_null_classes_retained": true
+  },
+  "preprocessing": {
+    "sampling_hz": 50,
+    "xyz_columns_1_based": [
+      15,
+      16,
+      17
+    ],
+    "units": "m/s^2",
+    "dtype": "float32",
+    "channels": [
+      "x",
+      "y",
+      "z",
+      "euclidean_magnitude"
+    ],
+    "window": 128,
+    "stride": 64,
+    "starts": "Original file row grid from zero; never concatenate labels/subjects",
+    "window_eligibility": "All128labels equal one mapped nonzero code, curated outside selector",
+    "window_id": "subject_id*1000000000 + original_zero_based_start_row",
+    "normalization": "Exact source Frozen.normalized_input ordering and final float32 cast; input_scale1.0",
+    "disallowed": [
+      "target_statistics",
+      "resampling",
+      "interpolation",
+      "gravity_removal",
+      "rotation",
+      "class_balancing"
+    ]
+  },
+  "source": {
+    "dataset": "realworld",
+    "fold": 1,
+    "checkpoint": "artifacts/phase3b/folds/fold_1_models.pt",
+    "embedding_cache": "artifacts/revision_20261113/embeddings/realworld_fold_1_11c8725d46eb3e7a6b25c413c0c192d4982ea0975782f017e87e4311a50e41de.npz",
+    "calibration": {
+      "novelty_threshold": 0.638611912727356,
+      "local_distance": 0.2090341925621032,
+      "agreement_similarity": 0.8902801990509033
+    },
+    "calibration_prototypes": "StageC load_case return matrix; source-only historical calibration recipe",
+    "recognition_prototypes": "Separate P.known_prototypes source-only matrix",
+    "bundle_seal_before_target_download": true,
+    "target_inference": "Colab CPU only; eval/no_grad/batch512; no training",
+    "selection_reason": "Fixed first numerical reference before target outcomes; no target-based source-fold selection"
+  },
+  "methods": [
+    "O_all",
+    "O_agreed",
+    "H_all",
+    "H_agreed",
+    "TC_Frozen_Sensor_v1",
+    "random_20261117",
+    "random_20261118",
+    "random_20261119",
+    "random_20261120",
+    "random_20261121",
+    "random_20261122",
+    "random_20261123",
+    "random_20261124",
+    "random_20261125",
+    "random_20261126",
+    "random_20261127",
+    "random_20261128",
+    "random_20261129",
+    "random_20261130",
+    "random_20261131",
+    "random_20261132",
+    "random_20261133",
+    "random_20261134",
+    "random_20261135",
+    "random_20261136",
+    "known_only"
+  ],
+  "random_seeds": [
+    20261117,
+    20261118,
+    20261119,
+    20261120,
+    20261121,
+    20261122,
+    20261123,
+    20261124,
+    20261125,
+    20261126,
+    20261127,
+    20261128,
+    20261129,
+    20261130,
+    20261131,
+    20261132,
+    20261133,
+    20261134,
+    20261135,
+    20261136
+  ],
+  "budget_per_paid_arm": 4,
+  "max_simulated_calls": 100,
+  "candidate_pool": {
+    "top_n_per_client": 600,
+    "min_local_support": 12,
+    "max_total_selected": 3000,
+    "tie_order": "Pinned reference_acquisition NumPy behavior",
+    "original_distance": 0.2090341925621032,
+    "half_distance": 0.1045170962810516,
+    "agreement_similarity": 0.8902801990509033,
+    "fallback": false
+  },
+  "tc": {
+    "profile": "Independent TC-Frozen-Sensor-v1 centralized-feature reference",
+    "n_clusters": "min(4,N)",
+    "min_cluster_members": 5,
+    "k_neighbors": "min(20,n-1)",
+    "kmeans_seed": 42,
+    "init": "k-means++",
+    "n_init": 10,
+    "max_iter": 300,
+    "tol": 0.0001,
+    "algorithm": "lloyd",
+    "distance": "Euclidean",
+    "dtype": "float64"
+  },
+  "decoding": {
+    "known_and_duplicate_answers_charged": true,
+    "first_novel_name": "Purchased window embedding only",
+    "known_prototype_updates": false,
+    "prefix_replay": "Saved paid ledger only; no additional calls",
+    "cross_arm_labels_shared": false
+  },
+  "metrics": {
+    "primary": "Mean of fixed-eight-class novel macro-F1 over subjects6..10",
+    "random_aggregation": "Mean20seeds per subject then mean5subjects",
+    "secondary": [
+      "known4_macro_f1",
+      "joint12_macro_f1",
+      "per_subject_per_class_f1_recall_support",
+      "pooled_window_f1",
+      "actual_spending",
+      "recovered_names",
+      "coverage",
+      "all_prefixes"
+    ],
+    "primary_contrasts": [
+      "O_agreed-O_all",
+      "H_agreed-H_all",
+      "(H_agreed-H_all)-(O_agreed-O_all)"
+    ],
+    "missing_class_f1": 0,
+    "known_loss_review_flag": 0.02,
+    "positive_prefix_only_primary": false,
+    "uncertainty": "Descriptive; one shared acquisition episode, five evaluation subjects; no independence/power/significance claim",
+    "comparability": "Different dataset/vocabulary/aggregation from D4; not a directly comparable method-improvement score"
+  },
+  "runtime": {
+    "python": "3.13.18",
+    "numpy": "2.4.6",
+    "torch": "2.14.1+cpu",
+    "sklearn": "1.6.1",
+    "scipy": "1.16.3",
+    "device": "cpu",
+    "torch_threads": 4
+  },
+  "resources": "To be admitted from implementation/generated/source-only preflight before target download; no experiment estimate yet",
+  "execution_order": [
+    "implementation_generated_checks",
+    "source_only_bundle_and_seal",
+    "official_archive_fetch_and_byte_identity",
+    "curate_and_encode_once",
+    "all_query_plans_sealed",
+    "budgeted_oracle_answers",
+    "all_predictions_sealed",
+    "evaluator_scores"
+  ],
+  "source_inputs": [
+    {
+      "path": "artifacts/phase3b/folds/fold_1_models.pt",
+      "sha256": "824772ae3b1ac09266379d7d6d59cc77fd1cd536a4dcdafeaf13745cb9686bbe",
+      "bytes": 1445407,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "artifacts/revision_20261113/stage_b_runs/20261113T153209825609Z/realworld_fold_1_diagnosis.json",
+      "sha256": "c962c15288ae6ae78d760a3e6419d0225435309f05a06f625f52daadf99d1356",
+      "bytes": 124709,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "artifacts/phase3a/phase3a_preregistered_manifest.json",
+      "sha256": "42dc12bed903128055b2477a819ad657516ee878843795b4e91859ff07c3e115",
+      "bytes": 2981,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "artifacts/phase3d/phase3d_policy_lock.json",
+      "sha256": "9e0bb126389e98573d11947c55f0643f76904e7f1ca5d55f28b516da5d47488b",
+      "bytes": 2191,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "data/realworld/cache/realworld_forearm_acc_w128_s64_50hz.npz",
+      "sha256": "d0ca5495cf03106ebc724c79cdd9d2f7e004490b183b55014c21cc59e6a2a823",
+      "bytes": 48466880,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "colab/src/phase5_metrics_corrected.py",
+      "sha256": "1305d6706500e5e0ce315c632a8a164e4d8ee6c4de9e5417e899c033b8b74a22",
+      "bytes": 19975,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/stage_b_diagnosis.py",
+      "sha256": "f90937076d7a545df52b33ee525b798ed50225616fd0871a93eb19008ea05f3b",
+      "bytes": 12199,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/stage_c_pilot.py",
+      "sha256": "ba78e770054d2227bb93215e008dbc3e5d653cca8d5a8fea51b002ae9b1aef67",
+      "bytes": 8925,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/data_access.py",
+      "sha256": "a5263308ab8f151835a4259faff9710e674f033cbccdd14b43383cf88feed39d",
+      "bytes": 2370,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/reference_acquisition.py",
+      "sha256": "6ae73fe25256d2d4044e82f47b3d22f37e8eeeb49fe6466b912ba6e4aac17080",
+      "bytes": 4793,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/stage_c_mechanisms.py",
+      "sha256": "6d3f495042833feb2a7f6d7ddc30f2970f43647d1d7b00f39a2cc9d3c1e8f7ec",
+      "bytes": 6125,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/d3_matched_core.py",
+      "sha256": "dc39d3e1382dbb31f77c71af509c49e4d10429b0a87095c27b4bfbcdaa37f1de",
+      "bytes": 4879,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/d4_typiclust_core.py",
+      "sha256": "f67446428996f778c4c409f5ce479647fc7501d473a810a84a1593b9d44bf60c",
+      "bytes": 5663,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "revision/20261113/M1_MHEALTH_EXTERNAL_PROTOCOL.md",
+      "sha256": "226e05f5aa3a8d930e3ba7ff42f8a9c765ba53702645c1ea22d59cde768f1ceb",
+      "bytes": 13152,
+      "verification": "local_bytes_verified"
+    },
+    {
+      "path": "artifacts/revision_20261113/embeddings/realworld_fold_1_11c8725d46eb3e7a6b25c413c0c192d4982ea0975782f017e87e4311a50e41de.npz",
+      "sha256": "f549436c19f49187abfdf6b853676d517b2ef06e6131a44ff1930867fa891ac3",
+      "verification": "recorded_StageB_pin_runtime_verification_required"
+    },
+    {
+      "path": "artifacts/revision_20261113/embeddings/realworld_fold_1_11c8725d46eb3e7a6b25c413c0c192d4982ea0975782f017e87e4311a50e41de.json",
+      "expected_metadata": {
+        "identity": {
+          "dataset": "realworld",
+          "fold": 1,
+          "cache_sha256": "d0ca5495cf03106ebc724c79cdd9d2f7e004490b183b55014c21cc59e6a2a823",
+          "checkpoint_sha256": "824772ae3b1ac09266379d7d6d59cc77fd1cd536a4dcdafeaf13745cb9686bbe",
+          "manifest_sha256": "42dc12bed903128055b2477a819ad657516ee878843795b4e91859ff07c3e115",
+          "source_sha256": "918e790e35f6ccd49a1470d26004098d2ae198c5ec15ffccd6809a9cf062ffcc",
+          "scope_sha256": "49e721a4f445178e8900e98db3b0102ce0621651a6d8ca0b76db214f7588807d",
+          "runtime": {
+            "python": "3.13.18",
+            "numpy": "2.4.6",
+            "torch": "2.14.1+cpu",
+            "sklearn": "1.6.1",
+            "scipy": "1.16.3",
+            "device": "cpu",
+            "torch_threads": 4
+          }
+        },
+        "embedding_sha256": "da1c2a9ccc9cc95ffa67b9548b210e5c599b6c1d27f054cdf37f7221f9677bdb",
+        "npz_sha256": "f549436c19f49187abfdf6b853676d517b2ef06e6131a44ff1930867fa891ac3",
+        "path": "/content/drive/MyDrive/FedVocabHAR/artifacts/revision_20261113/embeddings/realworld_fold_1_11c8725d46eb3e7a6b25c413c0c192d4982ea0975782f017e87e4311a50e41de.npz"
+      },
+      "verification": "exact_metadata_equality_required_in_Colab"
+    }
+  ],
+  "hold_conditions": [
+    "implementation_scientific_choices_unresolved",
+    "source_reference_mismatch",
+    "archive_version_discrepancy",
+    "missing_subject",
+    "invalid_selected_signals_or_labels"
+  ],
+  "not_performed": [
+    "raw_MHEALTH_download",
+    "target_feature_or_label_access",
+    "model_import_or_inference",
+    "training",
+    "target_evaluation",
+    "manuscript_edit"
+  ]
+}

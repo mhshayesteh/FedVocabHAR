@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-16",
+  "profile": "TC-Frozen-Sensor-v1",
+  "status": "specified_for_implementation_not_research_admitted",
+  "primary_paper": "https://proceedings.mlr.press/v162/hacohen22a/hacohen22a.pdf",
+  "author_repository": "https://github.com/avihu111/TypiClust",
+  "source_fidelity": "Independent paper-inspired initial-pool sensor adaptation; exact author selector code/commit parity not verified",
+  "access": {
+    "server": "full_selected_client_embeddings",
+    "classification": "centralized_feature_access_reference",
+    "encoder": "same_frozen_cached_64D",
+    "selector_L0": "empty_new_client_pool",
+    "source_known_supervision": "retained_in_encoder_prefilter_known_prototypes_and_decoder"
+  },
+  "numerical": {
+    "budget": 4,
+    "clusters": "min(B,N)",
+    "init": "k-means++",
+    "n_init": 10,
+    "random_state": 42,
+    "max_iter": 300,
+    "tol": 0.0001,
+    "algorithm": "lloyd",
+    "dtype": "float64",
+    "eligible_min_members": 5,
+    "neighbors": "min(20, cluster_size-1)",
+    "distance": "Euclidean_not_squared",
+    "self_exclusion": "same_index_only",
+    "duplicate_vectors": "retained_without_jitter",
+    "typicality": "1/(mean_neighbor_distance+1e-12)",
+    "cluster_order": [
+      "fewest_selected",
+      "largest_support",
+      "smallest_member_ID"
+    ],
+    "point_ties": "smallest_original_window_ID",
+    "exhausted_pool": "preserve_under_spending_no_fallback"
+  },
+  "naming": {
+    "unit": "one_window_label",
+    "known_duplicate_answers": "charged",
+    "first_new_name": "purchased_embedding_only",
+    "decoder": "same_as_D3"
+  },
+  "development_comparison": {
+    "folds": 9,
+    "deterministic_D3_arms": 4,
+    "new_comparator": 1,
+    "random_query_seeds": [
+      20261117,
+      20261118,
+      20261119,
+      20261120,
+      20261121,
+      20261122,
+      20261123,
+      20261124,
+      20261125,
+      20261126,
+      20261127,
+      20261128,
+      20261129,
+      20261130,
+      20261131,
+      20261132,
+      20261133,
+      20261134,
+      20261135,
+      20261136
+    ],
+    "historical_seed_20261116": "retained_separately_not_in_new_seed_average",
+    "episode_conditions": 225,
+    "max_simulated_calls_if_all_replayed": 900,
+    "primary_population": "common_unpaid_union_of_all_conditions; rescore_existing_predictions"
+  },
+  "independent_evaluation": {
+    "status": "not_certified",
+    "bounded_existing_data_review": true,
+    "no_new_population_selected": true
+  },
+  "blockers": [
+    "independent_implementation",
+    "generated_and_Colab_numerical_checks",
+    "resource_and_input_contract",
+    "user_run_notebook"
+  ],
+  "evidence": [
+    {
+      "path": "revision/20261113/D3_MATCHED_AGREEMENT_REPORT.md",
+      "sha256": "09be3e1fc8d692321ccdf83e14219d2c7f2b7f0b983f167aa9af2e756c41e273"
+    },
+    {
+      "path": "revision/20261113/D3_MATCHED_AGREEMENT_REVIEW.json",
+      "sha256": "9d36a33c8c0a00f8f234b8701914fa84c868acde619bd617af2590750b626280"
+    },
+    {
+      "path": "revision/20261113/EVALUATION_ACCESS_LEDGER_20261115.md",
+      "sha256": "6eebe58db0f05ee8f880335f99d577862562f7bfcd0106bb123827877d5cd486"
+    },
+    {
+      "path": "revision/20261113/COMPARATOR_ADMISSION_SPEC_20261115.md",
+      "sha256": "6136bd38a116289d3aebe4bd869741f3f420732dfae3397eb6f7b3120b540b2c"
+    },
+    {
+      "path": "revision/20261113/NOVELTY_ASSESSMENT_20261116.md",
+      "sha256": "d51b7b02eaec89e025b58b65bc21a020e62f05f7198b7e9f1de7c1c3912621d3"
+    }
+  ],
+  "local_inventory": [
+    {
+      "path": "artifacts/phase0",
+      "files": [
+        "pair_results.csv",
+        "phase0_manifest.json",
+        "reference_model.pt",
+        "registry_results.csv",
+        "wisdm_watch_accel_w128_s64.npz"
+      ]
+    },
+    {
+      "path": "artifacts/phase0b",
+      "files": [
+        "contrastive_encoder.pt",
+        "pair_results.csv",
+        "phase0b_manifest.json",
+        "registry_results.csv",
+        "ssl_history.csv"
+      ]
+    }
+  ],
+  "launched_model_runs": 0,
+  "launched_oracle_calls": 0,
+  "manuscript_changed": false
+}

@@ -1,0 +1,10 @@
+{
+  "scientific_contract": "R2_DSADS_CONTRACT.json",
+  "source_provenance": "R2_SOURCE_PROVENANCE.json",
+  "scientific_contract_sha256": "6100485e81ac7b137ae4227688e81f0bc84c604017c92f7d8a8c868e8a8fb97e",
+  "resources": {
+    "overall_seconds": 1800,
+    "RSS_GiB": 3
+  },
+  "status": "generated_qualification_passed_real_source_target_checks_pending_Colab"
+}

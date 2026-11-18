@@ -1,0 +1,14 @@
+{
+  "scientific_contract": "M1_MHEALTH_EXTERNAL_CONTRACT.json",
+  "source_provenance": "M1_SOURCE_PROVENANCE.json",
+  "scientific_contract_sha256": "c740e2a5258cbb0923aeaad053d15f37c0ddb32705901814212201068d7bf17f",
+  "resources": {
+    "overall_seconds": 1800,
+    "source_seconds": 180,
+    "download_seconds": 300,
+    "encode_seconds": 900,
+    "task_seconds": 120,
+    "RSS_GiB": 3
+  },
+  "status": "implementation_prepared_real_source_and_target_checks_pending_Colab"
+}
