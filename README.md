@@ -15,6 +15,20 @@ Manuscripts, LaTeX, figures, submission documents, result tables, datasets, and
 checkpoints are excluded. Configuration files contain the small inputs required
 by the code, not trained models or result dumps.
 
+## Sensors revision experiments
+
+The [Sensors revision guide](notebooks/sensors_revision/README.md) lists the runners, execution contracts, and expected inputs.
+
+| Study | Code |
+|---|---|
+| D4 matched development baselines | [d4](notebooks/sensors_revision/d4) |
+| M1 frozen MHEALTH transfer | [m1](notebooks/sensors_revision/m1) |
+| C1 aggregate-centroid selector and tests | [c1](notebooks/sensors_revision/c1) |
+| R2 frozen DSADS transfer | [r2](notebooks/sensors_revision/r2) |
+| LoGo adaptation, UCI-HAR filtering, and sequential DSADS promotion | [exploratory notebooks](notebooks/sensors_revision/exploratory) |
+
+Use Linux or Colab for the revision runners. The contracts specify the prepared inputs and runtime required for each experiment. Prepared windows, caches, embeddings, and checkpoints must be obtained or generated separately.
+
 ## Setup
 
 ```sh
@@ -61,7 +75,7 @@ python tools/test_metric_correction.py
 
 ## Repository history
 
-This source release has one squashed commit. Historical protocol dates and
+The initial source release was published as a squashed commit. Historical protocol dates and
 comments retained in source/configuration are experiment records; this Git
 history does not establish their original registration timestamps.
 
